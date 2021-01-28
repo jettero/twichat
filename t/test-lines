@@ -1,0 +1,90 @@
+
+# various lines after PASS/NICK
+:tmi.twitch.tv 001 palmereldritch3s :Welcome, GLHF!
+:tmi.twitch.tv 002 palmereldritch3s :Your host is tmi.twitch.tv
+:tmi.twitch.tv 003 palmereldritch3s :This server is rather new
+:tmi.twitch.tv 004 palmereldritch3s :-
+:tmi.twitch.tv 375 palmereldritch3s :-
+:tmi.twitch.tv 372 palmereldritch3s :You are in a maze of twisty passages, all alike.
+:tmi.twitch.tv 376 palmereldritch3s :>
+
+# JOIN #palmereldritch3s
+:palmereldritch3s!palmereldritch3s@palmereldritch3s.tmi.twitch.tv JOIN #palmereldritch3s
+:palmereldritch3s.tmi.twitch.tv 353 palmereldritch3s = #palmereldritch3s :palmereldritch3s
+:palmereldritch3s.tmi.twitch.tv 366 palmereldritch3s #palmereldritch3s :End of /NAMES list
+
+# who
+:tmi.twitch.tv 421 palmereldritch3s WHO :Unknown command
+
+# PING :tmi.twitch.tv
+:tmi.twitch.tv PONG tmi.twitch.tv :tmi.twitch.tv
+
+# CAP REQ :twitch.tv/membership
+:tmi.twitch.tv CAP * ACK :twitch.tv/membership
+
+# CAP REQ :twitch.tv/tags twitch.tv/commands
+:tmi.twitch.tv CAP * ACK :twitch.tv/tags twitch.tv/commands
+
+# ROOMSTATE #palmereldritch3s
+# RFC1459 really does allow for unprefixed command replies with no params …
+# and tmi.twitch.tv really did reply to "ROOMSTATE" with this one word:
+RENEGOTIATING
+
+# this is the result of an actual session with freenode (except where I makred
+# things with [:-snip-:] and obscured my ISP and IP
+:tepper.freenode.net NOTICE * :*** Looking up your hostname...
+:tepper.freenode.net NOTICE * :*** Checking Ident
+:tepper.freenode.net NOTICE * :*** Found your hostname
+:tepper.freenode.net NOTICE * :*** No Ident response
+:tepper.freenode.net 001 just_testing_som :Welcome to the freenode Internet Relay Chat Network just_testing_som
+:tepper.freenode.net 002 just_testing_som :Your host is tepper.freenode.net[192.186.157.43/6667], running version ircd-seven-1.1.9
+:tepper.freenode.net 003 just_testing_som :This server was created Sun Mar 15 2020 at 17:51:04 UTC
+:tepper.freenode.net 004 just_testing_som tepper.freenode.net ircd-seven-1.1.9 DOQRSZaghilopsuwz CFILMPQSbcefgijklmnopqrstuvz bkloveqjfI
+:tepper.freenode.net 005 just_testing_som CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstuz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
+:tepper.freenode.net 005 just_testing_som CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 ETRACE KNOCK WHOX :are supported by this server
+:tepper.freenode.net 005 just_testing_som CPRIVMSG CNOTICE SAFELIST ELIST=CTU MONITOR=100 :are supported by this server
+:tepper.freenode.net 251 just_testing_som :There are 101 users and 75448 invisible on 31 servers
+:tepper.freenode.net 252 just_testing_som 43 :IRC Operators online
+:tepper.freenode.net 253 just_testing_som 26 :unknown connection(s)
+:tepper.freenode.net 254 just_testing_som 42556 :channels formed
+:tepper.freenode.net 255 just_testing_som :I have 3480 clients and 1 servers
+:tepper.freenode.net 265 just_testing_som 3480 5454 :Current local users 3480, max 5454
+:tepper.freenode.net 266 just_testing_som 75549 90930 :Current global users 75549, max 90930
+:tepper.freenode.net 250 just_testing_som :Highest connection count: 5455 (5454 clients) (1627661 connections received)
+:tepper.freenode.net 375 just_testing_som :- tepper.freenode.net Message of the Day -
+:tepper.freenode.net 372 just_testing_som :- Welcome to tepper.freenode.net in Buffalo, NY.
+:tepper.freenode.net 372 just_testing_som :- Thanks to http://www.servermania.com/ for sponsoring
+:tepper.freenode.net 372 just_testing_som :- this server!
+:tepper.freenode.net 376 just_testing_som : [:-snip-:]
+:tepper.freenode.net 376 just_testing_som :End of /MOTD command.
+:just_testing_som MODE just_testing_som :+i
+:just_testing_som!~jts@ispnamehere.com JOIN #twichat
+:tepper.freenode.net MODE #twichat +ns
+:tepper.freenode.net 353 just_testing_som @ #twichat :@just_testing_som
+:tepper.freenode.net 366 just_testing_som #twichat :End of /NAMES list.
+:jettero!~jettero@pdpc/supporter/active/jettero JOIN #twichat
+:jettero!~jettero@pdpc/supporter/active/jettero PRIVMSG just_testing_som :supz mang
+:jettero!~jettero@pdpc/supporter/active/jettero PRIVMSG just_testing_som :lawl
+:jettero!~jettero@pdpc/supporter/active/jettero PRIVMSG #twichat :hiya
+:jettero!~jettero@pdpc/supporter/active/jettero PRIVMSG #twichat :supz
+:jettero!~jettero@pdpc/supporter/active/jettero TOPIC #twichat :lol this is a topic
+:just_testing_som!~jts@ispnamehere.com PART #twichat
+:just_testing_som!~jts@ispnamehere.com JOIN #twichat
+:tepper.freenode.net 332 just_testing_som #twichat :lol this is a topic
+:tepper.freenode.net 333 just_testing_som #twichat jettero!~jettero@pdpc/supporter/active/jettero 1607879718
+:tepper.freenode.net 353 just_testing_som @ #twichat :just_testing_som jettero
+:tepper.freenode.net 366 just_testing_som #twichat :End of /NAMES list.
+:jettero!~jettero@pdpc/supporter/active/jettero PRIVMSG #twichat :RUT?
+:just_testing_som!~jts@ispnamehere.com QUIT :Client Quit
+
+# If you tell ChanServ (freenode) about your URL, then it'll spew it as a 328
+:services. 328 im_stoopid #twichat :https://github.com/jettero/twichat
+
+# actual session close due to missing PONG response
+PING :tepper.freenode.net
+:im_stoopid!~im_stoopi@047-225-018-143.res.spectrum.com QUIT :Ping timeout: 256 seconds
+ERROR :Closing Link: 047-225-018-143.res.spectrum.com (Ping timeout: 256 seconds)
+
+# This is "Example of a Bits message" from https://dev.twitch.tv/docs/irc/tags#privmsg-twitch-tags,
+# not an actual received message
+@badge-info=;badges=staff/1,bits/1000;bits=100;color=;display-name=ronni;emotes=;id=b34ccfc7-4977-403a-8a94-33c6bac34fb8;mod=0;room-id=1337;subscriber=0;tmi-sent-ts=1507246572675;turbo=1;user-id=1337;user-type=staff :ronni!ronni@ronni.tmi.twitch.tv PRIVMSG #ronni :cheer100

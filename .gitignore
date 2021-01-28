@@ -1,0 +1,11 @@
+# testing goop
+t/output
+.pathed-run.log
+
+# bython goop
+__pycache__
+*.pyc
+
+# patch
+*.orig
+*.rej

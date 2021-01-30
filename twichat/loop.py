@@ -126,11 +126,11 @@ class TWILoop:
         return await self.sock.readline()
 
     def iter_handlers(self, handle_me, filter_cls=ReplyHandler):
-        log.debug('iter_handlers() iterating about %s using %s', handle_me, filter_cls)
+        log.debug("iter_handlers() iterating about %s using %s", handle_me, filter_cls)
         stop_handles = False
         to_remove = list()
         for handler in self.handlers:
-            log.debug('iter_handlers() considering handler=%s', handler)
+            log.debug("iter_handlers() considering handler=%s", handler)
             if isinstance(handler, filter_cls):
                 try:
                     res = handler(handle_me)
@@ -152,21 +152,25 @@ class TWILoop:
                     continue
                 if isinstance(res, HandlerResult):
                     if res.send:
-                        log.debug('iter_handlers() handler has something to say')
+                        log.debug("iter_handlers() handler has something to say")
                         if isinstance(res.send, (list, tuple)):
                             for item in res.send:
                                 self.send(item)
                         else:
                             self.send(res.send)
                     if res.done:
-                        log.debug('iter_handlers() handler says it fulfilled its purpose')
+                        log.debug(
+                            "iter_handlers() handler says it fulfilled its purpose"
+                        )
                         to_remove.append(handler)
                     if res.stop_handles:
-                        log.debug('iter_handlers() handler says it handled the message')
+                        log.debug("iter_handlers() handler says it handled the message")
                         stop_handles = True
                         break
                     if res.stop_mainloop:
-                        log.debug('iter_handlers() handler says this whole circus is done')
+                        log.debug(
+                            "iter_handlers() handler says this whole circus is done"
+                        )
                         self.stop()
                 elif res is not None:
                     log.debug("ignoring result=%s from handler=%s", res, handler)

@@ -9,17 +9,20 @@ Origin = namedtuple("Origin", ["name", "user", "host"])
 User = namedtuple("User", ["name"])
 Host = namedtuple("Host", ["name"])
 Command = namedtuple("Command", ["name"])
-TagPair = namedtuple("TagPair", ['name', 'value'])
+TagPair = namedtuple("TagPair", ["name", "value"])
 
-ParsedReply = namedtuple("Reply", ['tags', "origin", "command", "params"])
+ParsedReply = namedtuple("Reply", ["tags", "origin", "command", "params"])
 
 MUT_MARK = "←!"
+
 
 class TagSet(dict):
     pass
 
+
 class Params(list):
     pass
+
 
 class MarkedUnexpectedToken(ValueError):
     def __init__(self, untoken, line):
@@ -57,11 +60,11 @@ class ReplyTransformer(Transformer):
     def tagpair(self, v):
         # eg ('badge-info', Token(EQ))
         if len(v) == 2:
-            return TagPair(v[0],None)
+            return TagPair(v[0], None)
 
         # eg ('badges', Token(EQ), 'staff/1,bits/1000')
         if len(v) == 3:
-            return TagPair(v[0],v[2])
+            return TagPair(v[0], v[2])
 
         # hopefully there's no more variations to consider
         raise ValueError(f"WTF(v={v})")

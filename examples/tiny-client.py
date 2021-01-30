@@ -17,6 +17,7 @@ from twichat.const import UUID
 
 log = logging.getLogger(__name__)
 
+
 class PrintAll(ReplyHandler):
     def accept(self, reply):
         print(reply)
@@ -83,7 +84,7 @@ def run(host, port, channel, nick, logfile, passwd, verbosity):
         level = logging.INFO
         if verbosity > 1:
             level = logging.DEBUG
-        log.info('turning on logging at level=%d', level)
+        log.info("turning on logging at level=%d", level)
         logging.basicConfig(
             level=level,
             datefmt="%Y-%m-%d %H:%M:%S",
@@ -94,7 +95,7 @@ def run(host, port, channel, nick, logfile, passwd, verbosity):
     loop.handlers.append(PingPong())
     loop.handlers.append(PrintAll())
     if logfile:
-        log.info('logging RawLog() and SendRawLog() to %s', logfile)
+        log.info("logging RawLog() and SendRawLog() to %s", logfile)
         rlh = RawLog(logfile)
         srl = SendRawLog(rlh)
         loop.handlers.append(rlh)

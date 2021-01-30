@@ -9,6 +9,7 @@ message classes and gadgets, look in twichat.irc.reply instead.
 
 from .annoying import no_space_or_error
 
+
 class Message:
     """
     The base Message factory is really just a simple concatenation tool that
@@ -31,6 +32,7 @@ class Message:
     assert str(t0) == 'PRIVMSG #channelname :this is my silly message'
     assert str(t1) == 'PRIVMSG #channelname :this is my silly message'
     """
+
     def __init__(self, cmd, *msg, **kw):
         self.msg = (cmd.upper(),)
         self.tags = kw
@@ -70,7 +72,7 @@ class Message:
             self.msg += msg + (last,)
 
         if self.tags:
-            pfx = '@' + ';'.join('='.join(item) for item in sorted(self.tags.items()))
+            pfx = "@" + ";".join("=".join(item) for item in sorted(self.tags.items()))
             no_space_or_error(pfx)
             self.msg = (pfx,) + self.msg
 

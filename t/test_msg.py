@@ -18,21 +18,27 @@ def test_msg_basics():
 
 
 def test_outgoing_msg_examples():
-    n0 = NICK("namehere") # please change my name to "namehere"
-    n1 = Message('nick', 'namehere') # same thing
+    n0 = NICK("namehere")  # please change my name to "namehere"
+    n1 = Message("nick", "namehere")  # same thing
 
-    assert str(n0) == 'NICK namehere'
-    assert str(n1) == 'NICK namehere'
+    assert str(n0) == "NICK namehere"
+    assert str(n1) == "NICK namehere"
 
-    t0 = TargetMessage('#channelname', 'this is my silly message')
-    t1 = Message('PRIVMSG', '#channelname', 'this is my silly message')
+    t0 = TargetMessage("#channelname", "this is my silly message")
+    t1 = Message("PRIVMSG", "#channelname", "this is my silly message")
 
-    assert str(t0) == 'PRIVMSG #channelname :this is my silly message'
-    assert str(t1) == 'PRIVMSG #channelname :this is my silly message'
+    assert str(t0) == "PRIVMSG #channelname :this is my silly message"
+    assert str(t1) == "PRIVMSG #channelname :this is my silly message"
+
 
 def test_msg_tags():
     # AFAIK, this isn't actually how you send a message that's read; the tags used by Twitch IRC
     # appear to come from the server in the replies and you don't normally send them? I think?
     # But there's limited support for tags in case they're actually needed somehow.
-    m0 = Message('privmsg', '#channel', 'this is a red message', color='#FF0000', scooby='snacks')
-    assert str(m0) == '@color=#FF0000;scooby=snacks PRIVMSG #channel :this is a red message'
+    m0 = Message(
+        "privmsg", "#channel", "this is a red message", color="#FF0000", scooby="snacks"
+    )
+    assert (
+        str(m0)
+        == "@color=#FF0000;scooby=snacks PRIVMSG #channel :this is a red message"
+    )

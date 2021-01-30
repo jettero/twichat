@@ -6,8 +6,10 @@ import time
 from collections import defaultdict
 import dbm
 
+
 def now():
     return int(time.time())
+
 
 class ThrottleDB:
     _db = dict()
@@ -18,26 +20,30 @@ class ThrottleDB:
     @property
     def db(self):
         if self.filename not in self._db:
-            self._db[self.filename] = dbm.open(self.filename, 'c')
+            self._db[self.filename] = dbm.open(self.filename, "c")
         return self._db[self.filename]
 
     def __del__(self):
         self.db.close()
 
+
 class OverThrottle(Exception):
-    def __init__(self, blah='too fast'):
+    def __init__(self, blah="too fast"):
         super().__init__(blah)
+
 
 class Ticks(defaultdict):
     def __repr__(self):
-        i = ', '.join(f'{x}' for x in self.items())
-        return f'Ticks({i})'
+        i = ", ".join(f"{x}" for x in self.items())
+        return f"Ticks({i})"
+
 
 class TimeCounts(defaultdict):
     def __repr__(self):
         n = now()
-        i = ', '.join(f'{c}@{n-t}' for t,c in self.items())
-        return f'TimeCounts({i})'
+        i = ", ".join(f"{c}@{n-t}" for t, c in self.items())
+        return f"TimeCounts({i})"
+
 
 class Throttle:
     db = None
@@ -63,7 +69,7 @@ class Throttle:
         t = self.ticks
         todo = list()
         for k in t:
-            if n-k >= self.interval:
+            if n - k >= self.interval:
                 todo.append(k)
         for k in todo:
             del t[k]
@@ -88,4 +94,7 @@ class Throttle:
 
     def __repr__(self):
         c = self.count
-        return str(self.ticks).replace('TimeCounts','Throttle') + f' => {c} / {self.limit}'
+        return (
+            str(self.ticks).replace("TimeCounts", "Throttle")
+            + f" => {c} / {self.limit}"
+        )

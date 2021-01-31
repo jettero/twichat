@@ -1,0 +1,5 @@
+pytest
+pytest-mock
+pytest-pythonpath
+pytest-cov
+pytest-timeout

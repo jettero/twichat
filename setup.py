@@ -2,12 +2,8 @@
 # pylint: disable=attribute-defined-outside-init,import-outside-toplevel
 
 import sys
-import os
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
-
-THIS_DIR = os.path.abspath(os.path.dirname(__file__))
-REQS = os.path.join(THIS_DIR, "requirements.txt")
 
 
 class PyTest(TestCommand):
@@ -25,10 +21,11 @@ class PyTest(TestCommand):
         sys.exit(errno)
 
 
-def reqs(file=REQS):
-    with open(file, "r") as fh:
-        yield from fh
+with open("requirements.txt", "r") as fh:
+    ireqs = list(fh)
 
+with open("test_requirements.txt", "r") as fh:
+    treqs = list(fh) + ireqs
 
 setup(
     name="twichat",
@@ -41,9 +38,9 @@ setup(
     author="Paul Miller",
     author_email="paul@jettero.pl",
     url="https://github.com/jettero/twichat",
-    tests_require=["pytest",],
     cmdclass={"test": PyTest},
     packages=find_packages(),
+    tests_require=treqs,
     setup_requires=["setuptools_scm"],
-    install_requires=reqs(),
+    install_requires=ireqs,
 )

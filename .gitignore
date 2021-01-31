@@ -10,3 +10,6 @@ __pycache__
 *.orig
 *.rej
 twichat/version.py
+
+# egg
+*.egg-info

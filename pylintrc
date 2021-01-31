@@ -17,11 +17,8 @@ files-output=no
 bad-functions = input
 good-names = e, v, i
 
-[TYPECHECK]
-generated-members=.*\.hook\.main
-
 [DESIGN]
-max-line-length     = 200
+max-line-length     = 119
 max-args            = 12
 max-attributes      = 20
 max-branchs         = 30

@@ -20,7 +20,9 @@ def get_test_lines():
             # NOTE: we wrap this in a pointless object so the pytest -v results
             # trigger a tragic line-wrap mess
             #
-            # t/test_conftest.py::test_a_reply[:palmereldritch3s.tmi.twitch.tv 353 palmereldritch3s = #palmereldritch3s :palmereldritch3s\n] PASSED [ 50%]
+            # t/test_conftest.py::test_a_reply[:palmereldritch3s.tmi.twitch.tv
+            # 353 palmereldritch3s = #palmereldritch3s :palmereldritch3s\n]
+            # PASSED [ 50%]
             #
             # vs
             #

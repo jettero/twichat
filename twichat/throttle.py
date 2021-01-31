@@ -17,6 +17,18 @@ class ThrottleDB:
     def __init__(self, filename):
         self.filename = os.path.realpath(filename)
 
+    def __getitem__(self, idx):
+        return self.db.get(idx)
+
+    def __setitem__(self, idx, val):
+        self.db[idx] = val
+
+    def __iter__(self):
+        yield from self.db
+
+    def items(self):
+        yield from self.db.items()
+
     @property
     def db(self):
         if self.filename not in self._db:
@@ -28,8 +40,8 @@ class ThrottleDB:
 
 
 class OverThrottle(Exception):
-    def __init__(self, blah="too fast"):
-        super().__init__(blah)
+    def __init__(self, blah="too fast"):  # pylint: disable=useless-super-delegation
+        super().__init__(blah)  # this isn't useless, it's adding a default
 
 
 class Ticks(defaultdict):
@@ -90,7 +102,7 @@ class Throttle:
             raise OverThrottle()
         self.ticks[n] += 1
         if self.db:
-            self.db[self.name] = t
+            self.db[self.name] = self.ticks[self.name]
 
     def __repr__(self):
         c = self.count

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# pylint: disable=attribute-defined-outside-init,import-outside-toplevel
 
 import sys
 import os
